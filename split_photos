@@ -1,0 +1,28 @@
+import csv
+import os
+import shutil
+import glob
+
+fire_photos = dict()
+non_fire_ph = dict()
+
+src_dir = "C:\\Users\\Наиль\\Downloads\\train_imgs1\\train_imgs"
+
+def fun(d, path):
+  for key in d.keys():
+  shutil.copy(src_dir+"\\"+key, path)
+
+
+with open("C:\\Users\\Наиль\\Downloads\\train_labels.csv", 'r') as file:
+  csvreader = csv.reader(file)
+  for row in csvreader:
+    if row[1] == "1":
+      fire_photos[row[0]] = row[1]
+    else:
+      non_fire_ph[row[0]] = row[1]
+
+dst_dir = "C:\\Users\\Наиль\\Downloads\\train_imgs1\\train_imgs\\FIRES"
+dst_no_fire = "C:\\Users\\Наиль\\Downloads\\train_imgs1\\train_imgs\\No_fires"
+
+fun(fire_photos, dst_dir)
+fun(non_fire_ph, dst_no_fire)
