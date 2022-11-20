@@ -6,12 +6,12 @@ import glob
 fire_photos = dict()
 non_fire_ph = dict()
 
+# directory of all images
 src_dir = "C:\\Users\\Наиль\\Downloads\\train_imgs1\\train_imgs"
 
 def fun(d, path):
   for key in d.keys():
   shutil.copy(src_dir+"\\"+key, path)
-
 
 with open("C:\\Users\\Наиль\\Downloads\\train_labels.csv", 'r') as file:
   csvreader = csv.reader(file)
